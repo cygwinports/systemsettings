@@ -1,0 +1,32 @@
+inherit kf5
+
+NAME="systemsettings"
+VERSION=5.8.5
+RELEASE=1
+CATEGORY="KDE"
+SUMMARY="KDE control panel"
+DESCRIPTION="systemsettings provides the user with a centralized and convenient
+way to configure all of the settings for the KDE desktop in a single location."
+SRC_URI="mirror://kde/stable/plasma/${VERSION}/${NAME}-${VERSION}.tar.xz"
+
+PKG_NAMES="${NAME} ${NAME}-devel"
+systemsettings_CONTENTS="
+	usr/bin/cygsystemsettingsview-3.dll
+	usr/bin/systemsettings5.exe
+	usr/lib/qt5/plugins/classic_mode.dll
+	usr/lib/qt5/plugins/icon_mode.dll
+	usr/share/applications/kdesystemsettings.desktop
+	usr/share/applications/systemsettings.desktop
+	usr/share/doc/HTML/*/systemsettings/
+	usr/share/doc/${NAME}/
+	usr/share/kservices5/settings-*
+	usr/share/kservicetypes5/systemsettings*
+	usr/share/kxmlgui5/systemsettings/
+	usr/share/locale/*/LC_MESSAGES/systemsettings.mo
+	usr/share/systemsettings/
+"
+systemsettings_devel_REQUIRES="libKF5ItemViews-devel libKF5Service-devel libQt5Core-devel libQt5Gui-devel"
+systemsettings_devel_CONTENTS="
+	usr/include/systemsettingsview/
+	usr/lib/libsystemsettingsview.dll.a
+"
